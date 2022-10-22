@@ -3,58 +3,60 @@ import java.util.logging.Logger;
 public class Parallelogram {
 
     private static final Logger LOGGER = Logger.getLogger(Parallelogram.class.getName());
-    private int biggestSide;
-    private int smallerSide;
-    private double Angle;
+
+    private int bigSide;
+    private int smallSide;
+    private double angle;
 
     public Parallelogram() {
-    } 
 
-    public Parallelogram(int biggestSide, int smallerSide, double Angle) {
-        this.biggestSide = biggestSide;
-        this.smallerSide = smallerSide;
-        this.Angle = Angle;
     }
 
-    public int getBiggestSide() {
-        return biggestSide;
+    public Parallelogram(int bigSide, int smallSide, double angle) {
+        this.bigSide = bigSide;
+        this.smallSide = smallSide;
+        this.angle = angle;
     }
 
-    public void setBiggestSide(int biggestSide) {
-        this.biggestSide = biggestSide;
+    public int getBigSide() {
+        return bigSide;
     }
 
-    public int getSmallerSide() {
-        return smallerSide;
+    public void setBigSide(int bigSide) {
+        this.bigSide = bigSide;
     }
 
-    public void setSmallerSide(int smallerSide) {
-        this.smallerSide = smallerSide;
+    public int getSmallSide() {
+        return smallSide;
+    }
+
+    public void setSmallSide(int smallSide) {
+        this.smallSide = smallSide;
     }
 
     public double getAngle() {
-        return Angle;
+        return angle;
     }
 
-    public void setAngle(double Angle) {
-        this.Angle = Angle;
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 
     public double getPerimeter() {
-        return 2 * this.getBiggestSide() + 2 * this.getSmallerSide();
+        return 2 * this.getBigSide() + 2 * this.getSmallSide();
     }
 
     public double getLongDiagonal() {
-        return Math.sqrt(this.getBiggestSide() * this.getBiggestSide() +
-                this.getSmallerSide() * this.getSmallerSide() + 2 *
-                this.getBiggestSide() * this.getSmallerSide() *
+        return Math.sqrt(this.getBigSide() * this.getBigSide() +
+                this.getSmallSide() * this.getSmallSide() + 2 *
+                this.getBigSide() * this.getSmallSide() *
                 Math.cos(this.getAngle()));
     }
 
     public double getShortDiagonal() {
-        return Math.sqrt(this.getBiggestSide() * this.getBiggestSide() +
-                this.getSmallerSide() * this.getSmallerSide() - 2 *
-                this.getBiggestSide() * this.getSmallerSide() *
+        return Math.sqrt(this.getBigSide() * this.getBigSide() +
+                this.getSmallSide() * this.getSmallSide() - 2 *
+                this.getBigSide() * this.getSmallSide() *
                 Math.cos(this.getAngle()));
     }
 
@@ -62,44 +64,39 @@ public class Parallelogram {
 
         boolean result = true;
 
-        if (this.getBiggestSide() == this.getSmallerSide()) {
+        if (this.getBigSide() == this.getSmallSide()) {
             result = true;
         } else {
             result = false;
         }
 
         return result;
-
     }
 
     public boolean isSquare() {
 
         boolean result = true;
 
-        if (this.getBiggestSide() == this.getSmallerSide() &&
-                this.getAngle() == Math.PI * 0.5) {
+        if (this.getBigSide() == this.getSmallSide() && this.getAngle() == Math.PI * 0.5) {
             result = true;
         } else {
             result = false;
         }
 
         return result;
-
     }
 
     @Override
     public String toString() {
-        return "Parallelogram {" +
-                "Big Side = " + biggestSide +
-                ", Small Side = " + smallerSide +
-                ", Angle = " + Angle +
-                ", \nPerimeter = " + this.getPerimeter() +
-                ", Long Diagonal = " + this.getLongDiagonal() +
-                ", \nShort Diagonal = " + this.getShortDiagonal() +
-                ", \nThis is Square? - " + this.isSquare() +
-                ", This is Rhombus? - " + this.isRhombus() +
-                '}' + "\n";
+        return "Parallelogram:" +
+                "\nBig Side = " + bigSide +
+                "\nSmall Side = " + smallSide +
+                "\nAngle = " + angle +
+                "\nPerimeter = " + this.getPerimeter() +
+                "\nLong Diagonal = " + this.getLongDiagonal() +
+                "\nShort Diagonal = " + this.getShortDiagonal() +
+                "\nThis is Square? - " + this.isSquare() +
+                "\nThis is Rhombus? - " + this.isRhombus();
     }
-
 }
 
